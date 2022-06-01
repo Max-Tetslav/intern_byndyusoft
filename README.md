@@ -1,4 +1,4 @@
-# test_dyndyusoft
+# test_byndyusoft
 
 [CLICK TO OPEN DEPLOY](https://max-tetslav.github.io/intern_byndyusoft/)
 

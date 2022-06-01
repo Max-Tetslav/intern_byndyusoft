@@ -1,26 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useCallback, FC } from 'react';
+import { Formik } from 'formik';
+import { IFormValues, TFormikSubmit } from './models/app';
+import getSum from './utils/helpers/getSum';
+import { FORM_INITIAL_VALUES, FORM_VALIDATION } from './utils/constants/form';
+import AppForm from './components/containers/appForm/AppForm';
 
-function App() {
+const App: FC = () => {
+  const [result, setResult] = useState('');
+
+  const sumbitHandler = useCallback<TFormikSubmit<IFormValues>>((values) => {
+    const resultString = getSum(values.numList);
+
+    setResult(resultString);
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Formik
+      initialValues={FORM_INITIAL_VALUES}
+      validationSchema={FORM_VALIDATION}
+      validateOnChange={false}
+      validateOnBlur={false}
+      onSubmit={sumbitHandler}
+    >
+      <AppForm result={result} setResult={setResult} />
+    </Formik>
   );
-}
+};
 
 export default App;

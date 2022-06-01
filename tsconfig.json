@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "baseUrl": ".",
+    "target": "es2015",
     "lib": [
       "dom",
       "dom.iterable",
@@ -18,9 +19,11 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "plugins": [{ "name": "typescript-plugin-css-modules" }]
   },
   "include": [
-    "src"
-  ]
+    "./src",
+    "./global.d.ts",
+  ],
 }

@@ -8,7 +8,7 @@ const getSum = (value: string) => {
   let numList = value.replaceAll(' ', '').split(',').map(Number);
 
   if (
-    value[value.length - 1] === '' ||
+    value[value.length - 1] === ',' ||
     numList.some((item) => Number.isNaN(item))
   ) {
     return MESSAGE_ONLY_NUMBERS;

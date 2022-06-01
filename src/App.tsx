@@ -1,4 +1,5 @@
 import React, { useState, useCallback, FC } from 'react';
+import { HashRouter, Route, Routes } from 'react-router-dom';
 import { Formik } from 'formik';
 import { IFormValues, TFormikSubmit } from './models/app';
 import getSum from './utils/helpers/getSum';
@@ -15,15 +16,24 @@ const App: FC = () => {
   }, []);
 
   return (
-    <Formik
-      initialValues={FORM_INITIAL_VALUES}
-      validationSchema={FORM_VALIDATION}
-      validateOnChange={false}
-      validateOnBlur={false}
-      onSubmit={sumbitHandler}
-    >
-      <AppForm result={result} setResult={setResult} />
-    </Formik>
+    <HashRouter>
+      <Routes>
+        <Route
+          index
+          element={
+            <Formik
+              initialValues={FORM_INITIAL_VALUES}
+              validationSchema={FORM_VALIDATION}
+              validateOnChange={false}
+              validateOnBlur={false}
+              onSubmit={sumbitHandler}
+            >
+              <AppForm result={result} setResult={setResult} />
+            </Formik>
+          }
+        />
+      </Routes>
+    </HashRouter>
   );
 };
 

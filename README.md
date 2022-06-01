@@ -2,6 +2,10 @@
 
 [CLICK TO OPEN DEPLOY](https://max-tetslav.github.io/intern_byndyusoft/)
 
+![ТЗ](https://user-images.githubusercontent.com/63692030/171507235-5edad1c2-a6d6-4a55-938a-98baba5a69e5.png)
+
+В ТЗ противоречие, "без цифр" - со строками. Я сделал так, что функция принимает строку из инпута, и сама уже из нее делает массив и его обрабатывает
+
 Stack:
 
 - Typescript
